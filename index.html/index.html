@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Scraper</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+        background:#f4f4f4;
+        margin:0;
+        padding:20px;
+    }
+
+    .container{
+        max-width:700px;
+        margin:auto;
+        background:white;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h1{
+        text-align:center;
+        color:#333;
+    }
+
+    button{
+        padding:10px 20px;
+        background:#007bff;
+        color:white;
+        border:none;
+        border-radius:5px;
+        cursor:pointer;
+        font-size:16px;
+    }
+
+    button:hover{
+        background:#0056b3;
+    }
+
+    .book{
+        margin-top:15px;
+        padding:10px;
+        border:1px solid #ddd;
+        border-radius:5px;
+        background:#fafafa;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Book Scraper</h1>
+
+    <button id="loadBooks">Load Books</button>
+
+    <div id="book-list"></div>
+</div>
+
+<script>
+
+const books = [
+    {
+        title: "Python Basics",
+        price: "₹499"
+    },
+    {
+        title: "JavaScript Guide",
+        price: "₹699"
+    },
+    {
+        title: "HTML & CSS",
+        price: "₹399"
+    }
+];
+
+document.getElementById("loadBooks").addEventListener("click", function(){
+
+    let output = "";
+
+    books.forEach(book => {
+        output += `
+            <div class="book">
+                <h3>${book.title}</h3>
+                <p>Price: ${book.price}</p>
+            </div>
+        `;
+    });
+
+    document.getElementById("book-list").innerHTML = output;
+
+});
+
+</script>
+
+</body>
+</html>
